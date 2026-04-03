@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include '_head.html' %}
+<body>
+  
+{% include '_sidebar.html' %}
+  
+  <main class="main">
+    
+    {%include '_topbar.html' %}
+    <div class="content">
+    {%block content %}{% endblock %}      
+    </div>
+  </main>
+  
+  <button class="settings-fab" title="Settings">⚙️</button>
+  
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "_main.html" %}
+
+{% block content %}
+<!-- PROFILE -->    
+      <!-- PROFILE -->
+      <div>
+        <div class="profile-header-card">
+          <div class="profile-banner"></div>
+          <div class="profile-body">
+            <div class="profile-avatar">A</div>
+            <div class="profile-meta"><h2>Alec Thompson</h2><p>CEO / Co-Founder</p></div>
+            <div class="profile-tabs">
+              <div class="profile-tab active">App</div>
+              <div class="profile-tab">Message</div>
+              <div class="profile-tab">Settings</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div class="table-card" style="padding:24px">
+            <h3 style="font-size:15px;font-weight:700;margin-bottom:16px">Profile Information</h3>
+            <div class="billing-info-item"><span style="font-weight:600;font-size:13px">Full Name:</span><span style="font-size:13px;color:var(--text-muted)">Alec M. Thompson</span></div>
+            <div class="billing-info-item"><span style="font-weight:600;font-size:13px">Mobile:</span><span style="font-size:13px;color:var(--text-muted)">(44) 123 1234 123</span></div>
+            <div class="billing-info-item"><span style="font-weight:600;font-size:13px">Email:</span><span style="font-size:13px;color:var(--text-muted)">alecthompson@mail.com</span></div>
+            <div class="billing-info-item"><span style="font-weight:600;font-size:13px">Location:</span><span style="font-size:13px;color:var(--text-muted)">USA</span></div>
+            <div class="billing-info-item" style="border-bottom:none"><span style="font-weight:600;font-size:13px">Social:</span><span style="font-size:18px">🐦 💼 📸</span></div>
+          </div>
+          <div class="table-card" style="padding:24px">
+            <h3 style="font-size:15px;font-weight:700;margin-bottom:16px">Conversations</h3>
+            <div class="notif-item"><div class="notif-icon" style="background:#e8f0fe">👤</div><div class="notif-text"><h5>Sophie B.</h5><p>Hi! I need more information...</p></div></div>
+            <div class="notif-item"><div class="notif-icon" style="background:#fce8e6">👤</div><div class="notif-text"><h5>Anne Marie</h5><p>Awesome work, can you...</p></div></div>
+            <div class="notif-item" style="border-bottom:none"><div class="notif-icon" style="background:#e6f4ea">👤</div><div class="notif-text"><h5>Ivanna</h5><p>About files I can...</p></div></div>
+          </div>
+        </div>
+      </div>
+        
+        {% endblock %}

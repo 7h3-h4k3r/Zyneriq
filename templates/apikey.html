@@ -1,0 +1,35 @@
+{% extends '_main.html' %}
+
+{% block content %}
+<!-- TABLES -->
+      <div >
+        <div class="table-card">
+          <div class="table-card-title">Authors table</div>
+          <table>
+            <thead><tr><th>AUTHOR</th><th>FUNCTION</th><th>STATUS</th><th>EMPLOYED</th><th>ACTION</th></tr></thead>
+            <tbody>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#5e72e4,#825ee4)">J</div><div><div class="author-name">John Michael</div><div class="author-email">john@creative-tim.com</div></div></div></td><td><div class="function-title">Manager</div><div class="function-sub">Organization</div></td><td><span class="badge badge-online">ONLINE</span></td><td>23/04/18</td><td><button class="btn-edit">Edit</button></td></tr>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#fb6340,#fbb140)">A</div><div><div class="author-name">Alexa Liras</div><div class="author-email">alexa@creative-tim.com</div></div></div></td><td><div class="function-title">Programator</div><div class="function-sub">Developer</div></td><td><span class="badge badge-offline">OFFLINE</span></td><td>11/01/19</td><td><button class="btn-edit">Edit</button></td></tr>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#2dce89,#2dcecc)">L</div><div><div class="author-name">Laurent Perrier</div><div class="author-email">laurent@creative-tim.com</div></div></div></td><td><div class="function-title">Executive</div><div class="function-sub">Projects</div></td><td><span class="badge badge-online">ONLINE</span></td><td>19/09/17</td><td><button class="btn-edit">Edit</button></td></tr>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#11cdef,#1171ef)">M</div><div><div class="author-name">Michael Levi</div><div class="author-email">michael@creative-tim.com</div></div></div></td><td><div class="function-title">Programator</div><div class="function-sub">Developer</div></td><td><span class="badge badge-online">ONLINE</span></td><td>24/12/08</td><td><button class="btn-edit">Edit</button></td></tr>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#f5365c,#f56036)">R</div><div><div class="author-name">Richard Gran</div><div class="author-email">richard@creative-tim.com</div></div></div></td><td><div class="function-title">Manager</div><div class="function-sub">Executive</div></td><td><span class="badge badge-offline">OFFLINE</span></td><td>04/10/21</td><td><button class="btn-edit">Edit</button></td></tr>
+              <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#825ee4,#5e72e4)">M</div><div><div class="author-name">Miriam Eric</div><div class="author-email">miriam@creative-tim.com</div></div></div></td><td><div class="function-title">Programtor</div><div class="function-sub">Developer</div></td><td><span class="badge badge-offline">OFFLINE</span></td><td>14/09/20</td><td><button class="btn-edit">Edit</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-card">
+          <div class="table-card-title">Projects table</div>
+          <table>
+            <thead><tr><th>PROJECT</th><th>BUDGET</th><th>STATUS</th><th>COMPLETION</th><th>ACTION</th></tr></thead>
+            <tbody>
+              <tr><td style="font-weight:600">Spotift</td><td>$2,500</td><td style="color:#5e72e4;font-weight:600">working</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">60%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:60%;background:#5e72e4"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
+              <tr><td style="font-weight:600">Invesion</td><td>$5,000</td><td style="color:#2dce89;font-weight:600">done</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">100%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:100%;background:#2dce89"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
+              <tr><td style="font-weight:600">Jira</td><td>$3,400</td><td style="color:#f5365c;font-weight:600">cancelled</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">30%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:30%;background:#f5365c"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
+              <tr><td style="font-weight:600">Slack</td><td>$1,000</td><td style="color:#fb6340;font-weight:600">cancelled</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">0%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:0%;background:#fb6340"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
+              <tr><td style="font-weight:600">Webdev</td><td>$14,000</td><td style="color:#2dce89;font-weight:600">working</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">80%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:80%;background:#2dce89"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      {% endblock %}

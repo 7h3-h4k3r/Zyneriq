@@ -1,0 +1,49 @@
+{% extends '_main.html' %}
+
+{% block content %}
+<!-- DASHBOARD -->
+      <div >
+        <div class="stats-grid">
+          <div class="stat-card"><div><div class="stat-label">Today's Money</div><div class="stat-value">$53,000</div><div class="stat-change up">+55%</div></div><div class="stat-icon" style="background:linear-gradient(135deg,#5e72e4,#825ee4)">💰</div></div>
+          <div class="stat-card"><div><div class="stat-label">Today's Users</div><div class="stat-value">2,300</div><div class="stat-change up">+3%</div></div><div class="stat-icon" style="background:linear-gradient(135deg,#11cdef,#1171ef)">🌐</div></div>
+          <div class="stat-card"><div><div class="stat-label">New Clients</div><div class="stat-value">+3,462</div><div class="stat-change down">-2%</div></div><div class="stat-icon" style="background:linear-gradient(135deg,#2dce89,#2dcecc)">🏆</div></div>
+          <div class="stat-card"><div><div class="stat-label">Sales</div><div class="stat-value">$103,430</div><div class="stat-change up">+5%</div></div><div class="stat-icon" style="background:linear-gradient(135deg,#fb6340,#fbb140)">🛒</div></div>
+        </div>
+        <div class="middle-grid">
+          <div class="card card-promo">
+            <div class="promo-text">
+              <h3>Build by developers</h3>
+              <h2>Soft UI Dashboard</h2>
+              <p>From colors, cards, typography to complex elements, you will find the full documentation.</p>
+              <a href="#">Read More →</a>
+            </div>
+            <div class="promo-visual">
+              <div style="font-size:11px;opacity:0.8;margin-bottom:4px">waves</div>
+              <div style="font-size:16px">🚀 rocket</div>
+            </div>
+          </div>
+          <div class="card promo-visual-dark">
+            <h3>Work with the rockets</h3>
+            <p>Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card-dark">
+            <div style="padding:20px 22px 0"><canvas id="barChart" height="180"></canvas></div>
+            <div style="height:1px;background:rgba(255,255,255,0.08);margin:0 22px 12px"></div>
+            <div style="padding:0 22px 6px;color:rgba(255,255,255,0.7);font-size:13px;font-weight:600">Active Users <span style="color:#2dce89">+23%</span> than last week</div>
+            <div class="active-users-stats">
+              <div class="au-stat"><div class="au-icon">👥</div><div class="au-label">Users</div><div class="au-value">36K</div></div>
+              <div class="au-stat"><div class="au-icon">🖱️</div><div class="au-label">Clicks</div><div class="au-value">2M</div></div>
+              <div class="au-stat"><div class="au-icon">💵</div><div class="au-label">Sales</div><div class="au-value">$435</div></div>
+              <div class="au-stat"><div class="au-icon">📦</div><div class="au-label">Items</div><div class="au-value">43</div></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header"><h4>Sales Overview</h4><p>⬆ 4% more in 2021</p></div>
+            <div class="chart-body"><canvas id="lineChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
