@@ -22,9 +22,9 @@ def billing():
     return render_template("billing.html")  
 @app.route("/login")
 def login():
-    return render_template("iot-auth-v2.html", otop=False)    
-@app.route("/signin")
-def signin():
-    return render_template("signin.html", otop=True)
+    return render_template("login.html", otop=False)    
+@app.route("/signup")
+def signup():
+    return render_template("signup.html", otop=True)
 if __name__ == "__main__":
     app.run(debug=True)

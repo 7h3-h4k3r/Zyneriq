@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>IoT Dashboard | Login & Sign Up</title>
+    <!-- Simple classic style - clean, minimal, professional -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+
+<div class="auth-wrapper">
+    <!-- Classic header with dashboard identity -->
+    <div class="dashboard-header">
+        <h1>
+            zyneriq 🧩
+            <span>online</span>
+        </h1>
+        <p>Monitor devices, projects & analytics</p>
+    </div>
+
+    <!-- Mini stats from your images: TODAY'S MONEY + USERS
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-label">TODAY'S MONEY</div>
+            <div class="stat-value">$2,540</div>
+            <div class="stat-trend">↑ +55%</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">TODAY'S USERS</div>
+            <div class="stat-value">1,283</div>
+            <div class="stat-trend">↑ +3%</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">SALES (2026)</div>
+            <div class="stat-value">+4%</div>
+            <div class="stat-trend">📈 overview</div>
+        </div>
+    </div> -->
+
+    <!-- Projects table snippet (from your screenshot)
+    <div class="projects-preview">
+        <div class="title">RECENT PROJECTS</div>
+        <div class="project-line">
+            <span>Spotfit</span>
+            <span class="project-status status-working">working · 60%</span>
+        </div>
+        <div class="project-line">
+            <span>Invesion</span>
+            <span class="project-status status-done">done · 100%</span>
+        </div>
+        <div class="project-line">
+            <span>Jira</span>
+            <span class="project-status status-cancelled">cancelled · 30%</span>
+        </div>
+        <div class="project-line">
+            <span>Slack</span>
+            <span class="project-status status-cancelled">cancelled · 0%</span>
+        </div>
+    </div> -->
+
+    <!-- Buttons: Create Group & Add Device (classic style)
+    <div class="action-buttons">
+        <button class="btn-outline" id="createGroupBtn"><i>➕</i> Create Group</button>
+        <button class="btn-outline" id="addDeviceBtn"><i>📱</i> Add Device</button>
+    </div> -->
+
+    <!-- LOGIN / SIGNUP FORMS (simple classic) -->
+    <div class="form-panel">
+        <div class="tab-bar">
+            <a href="/login" class="tab-btn active" id="loginTab">Login</a>
+            <a href="/signup"class="tab-btn " id="signupTab">Sign Up</a>
+        </div>
+
+        <!-- Login Form -->
+        {%block content %}
+        {%endblock %}
+        <!-- Signup Form (hidden initially) -->
+        
+
+        <div id="formMessage" class="message-area"></div>
+    </div>
+</div>
+
+<div id="toastMsg" class="simple-toast">✓ Message</div>
+
+
+</body>
+</html>

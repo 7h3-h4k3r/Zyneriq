@@ -1,0 +1,295 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f7fb;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Simple card container */
+.auth-wrapper {
+    max-width: 480px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Header area with simple dashboard info */
+.dashboard-header {
+    background: #1a2a3a;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.dashboard-header h1 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-header h1 span {
+    background: #2d6a4f;
+    font-size: 0.7rem;
+    background: #38a169;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 400;
+}
+
+.dashboard-header p {
+    color: #a0b8cc;
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+
+/* Stats mini row - classic dashboard preview */
+.stats-row {
+    display: flex;
+    gap: 16px;
+    padding: 16px 24px;
+    background: #f8f9fc;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c7a8e;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a2a3a;
+}
+
+.stat-trend {
+    font-size: 0.65rem;
+    color: #38a169;
+}
+
+/* Simple projects table preview */
+.projects-preview {
+    padding: 12px 24px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.projects-preview .title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #6c7a8e;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.project-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    padding: 6px 0;
+    color: #2c3e4e;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.project-status {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: #edf2f7;
+}
+
+.status-working { background: #e6fffa; color: #2c7a4d; }
+.status-done { background: #e0f2fe; color: #0369a1; }
+.status-cancelled { background: #ffe4e2; color: #c2410c; }
+
+/* Simple action buttons */
+.action-buttons {
+    padding: 12px 24px;
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #2c3e4e;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Form panel */
+.form-panel {
+    padding: 28px 24px 32px;
+}
+
+/* Tab buttons classic */
+.tab-bar {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e9ecef;
+
+}
+.tab-bar a {
+    text-decoration: none;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 0;
+    cursor: pointer;
+    color: #8a99ae;
+    transition: 0.2s;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #1a2a3a;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #1a2a3a;
+    border-radius: 2px;
+}
+
+/* Simple form */
+.form-container {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d1d9e8;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #ffffff;
+    transition: 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #8ba0bc;
+    box-shadow: 0 0 0 2px rgba(26, 42, 58, 0.05);
+}
+
+.submit-btn {
+    width: 100%;
+    background: #1a2a3a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    background: #2c3e4e;
+}
+
+.demo-hint {
+    font-size: 0.7rem;
+    color: #8ba0bc;
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #edf2f7;
+}
+
+.message-area {
+    font-size: 0.75rem;
+    margin-top: 12px;
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.error-msg {
+    color: #c2410c;
+    background: #fff5f2;
+}
+
+.success-msg {
+    color: #2c7a4d;
+    background: #f0fdf4;
+}
+
+/* Simple toast */
+.simple-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1e2a36;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+}
+
+@media (max-width: 500px) {
+    .stats-row { flex-direction: column; gap: 8px; }
+    .action-buttons { flex-wrap: wrap; }
+    .form-panel { padding: 20px; }
+}
