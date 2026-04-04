@@ -22,11 +22,7 @@ def billing():
     return render_template("billing.html")  
 @app.route("/login")
 def login():
-    return render_template("login.html",otop=True)    
-
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")   
+    return render_template("iot-auth-v2.html", otop=False)    
 @app.route("/signin")
 def signin():
     return render_template("signin.html", otop=True)
