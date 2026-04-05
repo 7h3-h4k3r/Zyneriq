@@ -36,8 +36,8 @@ def signup():
         User.signup(user)
         return {'message': 'Signup successful'}, 201
     except ValueError as e:
-        return {'message': str(e)}, 400
+        return {'error': str(e)}, 400
     except DuplicateUserError as e:
-        return {'message': str(e)}, 409
+        return {'error': str(e)}, 409
     except Exception as e:
-        return {'message': 'An unexpected error occurred: ' + str(e)}, 500
+        return {'error': 'An unexpected error occurred: ' + str(e)}, 500
