@@ -1,9 +1,11 @@
 
 // ---------- SIGNUP ----------
 const signupForm = document.getElementById('signupForm');
+$('.tab-btn').eq(0).removeClass('active');
+$('.tab-btn').eq(1).addClass('active');
 
-document.getElementsByClassName('tab-btn')[0].classList.remove('active');
-document.getElementsByClassName('tab-btn')[1].classList.add('active');
+//TODO : After finished authentication ,we must add the obfuscation for the password and also we must add the email verification for the user to make sure that the email is valid and also we must add the password strength checker to make sure that the password is strong enough to protect the user account from being hacked.
+
 if (signupForm) {
     const signupName = document.getElementById('signupName');
     const signupEmail = document.getElementById('signupEmail');

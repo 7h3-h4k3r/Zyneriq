@@ -66,10 +66,8 @@ function showToast(text, isError = false) {
     }, 2200);
 }
 
-// ---------- INIT ----------
-loadUsers();
 
-
+loadUsers()
 
 
 // ---------- SESSION CHECK ----------
@@ -109,7 +107,7 @@ if (panel) {
     salesLine.style.background = '#fafcff';
     salesLine.style.color = '#2c4e6e';
 
-    salesLine.innerHTML = '📊 <strong>Sales Overview</strong> 4% more in 2026';
+    // salesLine.innerHTML = '📊 <strong>Sales Overview</strong> 4% more in 2026';
 
     panel.before(salesLine);
 }

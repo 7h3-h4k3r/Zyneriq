@@ -1,6 +1,12 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template ,session, redirect, url_for
+from blueprints.authentication import auth
+from dotenv import load_dotenv
+import os
+load_dotenv()
 app = Flask(__name__)
+app.secret_key= os.getenv('SECRET_KEY')
+# print("Secret Key Loaded:", app.secret_key)  # Debugging line to confirm secret key is loaded
+app.register_blueprint(auth)
 
 @app.route("/")
 def home():
@@ -11,8 +17,12 @@ def apikey():
     return render_template("apikey.html")
 
 @app.route("/dashboard")
-def dashboard():    
-    return render_template("dashboard.html")    
+def dashboard(): 
+    is_authenticated = session.get('authenticated', False)
+    if not is_authenticated:
+        return redirect(url_for('login'))
+    else:
+        return render_template("dashboard.html",session=session)    
 @app.route("/profile")
 def profile():
     return render_template("profile.html")  
@@ -22,9 +32,9 @@ def billing():
     return render_template("billing.html")  
 @app.route("/login")
 def login():
-    return render_template("login.html", otop=False)    
+    return render_template("login.html")    
 @app.route("/signup")
 def signup():
-    return render_template("signup.html", otop=True)
+    return render_template("signup.html")
 if __name__ == "__main__":
     app.run(debug=True)

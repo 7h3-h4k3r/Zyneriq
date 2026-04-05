@@ -6,6 +6,9 @@
     <title>IoT Dashboard | Login & Sign Up</title>
     <!-- Simple classic style - clean, minimal, professional -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <!--TODO WE NOT SET THE SCRIPT FILE ON HEAD ITS DAMAGE OUR PERFORMANCE ISSUES-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 </head>
 <body>
 
@@ -84,6 +87,6 @@
 
 <div id="toastMsg" class="simple-toast">✓ Message</div>
 
-
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </body>
 </html>

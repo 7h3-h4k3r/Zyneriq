@@ -1,7 +1,7 @@
 // ---------- LOGIN ----------
 const loginForm = document.getElementById('loginForm');
-document.getElementsByClassName('tab-btn')[0].classList.add('active');
-document.getElementsByClassName('tab-btn')[1].classList.remove('active');
+$('.tab-btn').eq(0).addClass('active');
+$('.tab-btn').eq(1).removeClass('active');
 
 if (loginForm) {
     const loginEmail = document.getElementById('loginEmail');
@@ -27,7 +27,7 @@ if (loginForm) {
         const user = users.find(
             u => u.email.toLowerCase() === email.toLowerCase() && u.password === pwd
         );
-
+        console.log(user);
         if (user) {
             localStorage.setItem('iot_active_session', JSON.stringify({
                 email: user.email,
