@@ -22,7 +22,7 @@ def dashboard():
     if not is_authenticated:
         return redirect(url_for('login'))
     else:
-        return render_template("dashboard.html",session=session)    
+        return render_template("dashboard.html",session=session,username=session.get('username'))    
 @app.route("/profile")
 def profile():
     return render_template("profile.html")  

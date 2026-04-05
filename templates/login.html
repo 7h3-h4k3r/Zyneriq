@@ -4,8 +4,8 @@
     <div id="loginFormBox" class="form-container">
             <form id="loginForm">
                 <div class="input-group">
-                    <label>Email address</label>
-                    <input type="email" id="loginEmail" placeholder="hello@iot.com" autocomplete="off">
+                    <label>Username</label>
+                    <input type="text" id="loginUser" placeholder="adam" autocomplete="off">
                 </div>
                 <div class="input-group">
                     <label>Password</label>
@@ -18,5 +18,7 @@
                 </div>
             </form>
         </div>
+   
+    <script src="{{url_for('static',filename='js/auth.js')}}"></script>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 {%endblock %}

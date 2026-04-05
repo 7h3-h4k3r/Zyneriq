@@ -6,19 +6,31 @@ from . import auth
 
 '''user must validate the input before sending to backend, 
 but we will also validate it here for security reasons.'''
+
+@auth.route('/', methods=['POST'])
+def alreaduyLogin():
+    if session.get('authenticated'):
+        return {'username': session.get('username')}, 200
+    else:
+        return {'message': 'Not authenticated'}, 401
 @auth.route('/login', methods=['POST'])
 def login():
-    if 'authenticated' in session and session['authenticated']:
-        return {'message': 'Already logged in'}, 200
+    if session.get('authenticated'):
+        return redirect(url_for('dashboard'))
     user = request.get_json()
     try:
-        User.login(user)
-        return {'message': 'Login successful'}, 200
+        user_name = User.login(user)
+        return {'message': 'Login successful', 'username': user_name}, 200
+    except NotFoundUserError as e:
+        return {'error': str(e)}, 404
+    except PasswordError as e:
+        return {'error': str(e)}, 401
     except ValueError as e:
-        return {'message': str(e)}, 401
+        return {'error': str(e)}, 401
 
 @auth.route('/signup', methods=['POST'])
 def signup():
+    
     user = request.get_json()
     try:
         User.signup(user)

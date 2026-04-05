@@ -12,11 +12,17 @@
     {%block content %}{% endblock %}      
     </div>
   </main>
-  
-  <button class="settings-fab" title="Settings">⚙️</button>
-  
+   <div id="toastMsg" class="simple-toast">✓ Message</div>
+  <!-- <button class="settings-fab" title="Settings">⚙️</button> -->
+   <script src="{{ url_for('static', filename='js/validate.js') }}"></script>
+  <script>
+    setTimeout(() => {
+      const username = {{ username | tojson }};
+      showToast(`Welcome Back, ${username}`);
+    }, 1000);
+   
+  </script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </body>
 </html>

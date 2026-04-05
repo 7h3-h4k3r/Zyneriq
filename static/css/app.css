@@ -25,7 +25,21 @@
     align-items: center;
     padding: 0 15px; /* adds space left & right */
 }
-
+/* Simple toast */
+.simple-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1e2a36;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+}
 /* Button group */
 .btn-group {
     display: flex;

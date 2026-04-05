@@ -10,6 +10,7 @@ class User:
     @staticmethod
     def login(user_info):
         #TODO:inset validation 
+        
         db_conn = MConn.getMongoClient()
         result = db_conn['users'].find_one({'username' : user_info['username']})
         if not result:
@@ -17,7 +18,8 @@ class User:
         if not checkpw(user_info['password'].encode(),result['password']):
             raise PasswordError()
         session['authenticated'] = True
-        return True
+        session['username'] = result['username']
+        return result['username']
         
     @staticmethod
     def signup(user_info):
