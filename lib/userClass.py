@@ -1,14 +1,13 @@
 from .databaseClass import Mdbconn as MConn
 from bcrypt import hashpw, gensalt, checkpw
 from pymongo.errors import DuplicateKeyError
-from flask import session
+from flask import session 
 from .errorClass import DuplicateUserError, NotFoundUserError, PasswordError
-
-
+from .SessionClass import Session
 class User:
 
     @staticmethod
-    def login(user_info):
+    def login(user_info,request):
         #TODO:inset validation 
         
         db_conn = MConn.getMongoClient()
@@ -17,8 +16,7 @@ class User:
             raise NotFoundUserError()
         if not checkpw(user_info['password'].encode(),result['password']):
             raise PasswordError()
-        session['authenticated'] = True
-        session['username'] = result['username']
+        
         return result['username']
         
     @staticmethod

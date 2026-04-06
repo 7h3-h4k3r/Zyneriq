@@ -1,6 +1,7 @@
 from lib.userClass import User
 from flask import render_template, redirect, url_for, flash, request ,session
 from flask import Blueprint
+from lib.SessionClass import Session
 from lib.errorClass import DuplicateUserError, NotFoundUserError, PasswordError
 from . import auth
 
@@ -16,17 +17,32 @@ def alreaduyLogin():
 @auth.route('/login', methods=['POST'])
 def login():
     if session.get('authenticated'):
-        return redirect(url_for('dashboard'))
-    user = request.get_json()
-    try:
-        user_name = User.login(user)
-        return {'message': 'Login successful', 'username': user_name}, 200
-    except NotFoundUserError as e:
-        return {'error': str(e)}, 404
-    except PasswordError as e:
-        return {'error': str(e)}, 401
-    except ValueError as e:
-        return {'error': str(e)}, 401
+        sess = Session(session['session_id'])
+        if sess.is_valid():
+            return redirect(url_for('dashboard'))
+        session['authenticate'] = False
+        sess.collection.active = False
+        return {
+            'message' : 'Session Expired',
+            'authenticated' : False
+        },401
+    else:  
+        user = request.get_json()
+        try:
+            user_name = User.login(user,request)
+            sess = Session.register_session(user_name, request)
+            session['authenticated'] = True
+
+            session['session_id'] = sess.id
+            session['username'] = sess.collection.username
+            
+            return {'message': 'Login successful', 'username': session['username'], 'session_id': sess.id,'session_username':sess.collection.username}, 200
+        except NotFoundUserError as e:
+            return {'error': str(e)}, 404
+        except PasswordError as e:
+            return {'error': str(e)}, 401
+        except ValueError as e:
+            return {'error': str(e)}, 401
 
 @auth.route('/signup', methods=['POST'])
 def signup():
