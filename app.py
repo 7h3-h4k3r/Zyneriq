@@ -1,5 +1,6 @@
 from flask import Flask, render_template ,session, redirect, url_for
-from blueprints.authentication import auth
+from blueprints.authentication import auth 
+from blueprints.dialog import dialog
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -7,6 +8,7 @@ app = Flask(__name__)
 app.secret_key= os.getenv('SECRET_KEY')
 # print("Secret Key Loaded:", app.secret_key)  # Debugging line to confirm secret key is loaded
 app.register_blueprint(auth)
+app.register_blueprint(dialog)
 
 @app.route("/")
 def home():
@@ -14,12 +16,15 @@ def home():
 
 @app.route("/apikey")
 def apikey():
+    if not session.get('authenticated'):
+        return redirect(url_for('login'),session=session)
     return render_template("apikey.html")
 
 @app.route("/dashboard")
 def dashboard(): 
-    is_authenticated = session.get('authenticated', False)
-    if not is_authenticated:
+    
+    if not session.get('authenticated'):
+        print(session)  # Debugging line to check session contents
         return redirect(url_for('login'))
     else:
         return render_template("dashboard.html",session=session,username=session.get('username'))    

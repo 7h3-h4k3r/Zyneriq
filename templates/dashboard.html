@@ -46,4 +46,11 @@
           </div>
         </div>
       </div>
+      <script>
+    setTimeout(() => {
+      const username = {{ username | tojson }};
+      showToast(`Welcome Back, ${username}`);
+    }, 1000);
+   
+  </script>
 {% endblock %}

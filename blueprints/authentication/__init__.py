@@ -4,7 +4,7 @@ from flask import Blueprint
 auth = Blueprint(
     'auth',
     __name__,
-    url_prefix='/auth'
+    url_prefix='/api/v1/'
 )
 
 from . import route

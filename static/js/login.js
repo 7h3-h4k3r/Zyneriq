@@ -1,15 +1,10 @@
 const loginForm = document.getElementById('loginForm');
 $('.tab-btn').eq(0).addClass('active');
 $('.tab-btn').eq(1).removeClass('active');
-alreadyLogin().then(data => {
-    if (data && data.username) {
-        window.location.href = "/dashboard"; // change if needed
 
-    }
-})
 async function getUser(user) {
     try {
-        const response = await fetch('/auth/login' , {
+        const response = await fetch('/api/v1/auth' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,7 +12,9 @@ async function getUser(user) {
             body: JSON.stringify(user)
         });
         if (!response.ok) {
-            return null;
+            const data = await response.json();
+            
+            return data;
         }
         const data = await response.json();
         return data;
@@ -44,12 +41,13 @@ if (loginForm) {
 
         const user = {
             username: username,
-            password: pwd
+            password: pwd,
+            redirect: false
         }
         const in_user = await getUser(user);
-    
-        if (in_user) {
-            showMessage(`Welcome ${in_user.username}`, false);
+        
+        if (in_user.authenticated!=false) {
+            showMessage(`Welcome ${in_user.username} ${in_user.message}`, false);
             showToast('Login successful');
 
             setTimeout(() => {

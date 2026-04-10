@@ -2,13 +2,14 @@
 
 {% block content %}
 <!-- TABLES -->
+{%include 'modals.html' %}
 <div >
   <div class="table-card">
     <div class="header-row">
       <div class="table-card-title">API Keys</div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary">Create Group</button>
-        <button type="button" class="btn btn-primary">Add Device</button>
+      <div class="my-btn-group">
+        <button type="button" class="my-btn my-btn-secondary btn-create-group">Create Group</button>
+        <button type="button" class="my-btn my-btn-primary btn-add-device">Add Device</button>
       </div>
     </div>
     <table>

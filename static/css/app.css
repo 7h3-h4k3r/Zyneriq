@@ -41,14 +41,14 @@
     z-index: 1000;
 }
 /* Button group */
-.btn-group {
+.my-btn-group {
     display: flex;
     gap: 10px;
-    margin-right: 10px; /* pushes buttons away from edge */
+  
 }
 
 /* Base button */
-.btn {
+.my-btn {
     padding: 8px 16px;
     border: none;
     white-space: nowrap;
@@ -58,24 +58,26 @@
 }
 
 /* Styles */
-.btn-secondary {
-    width: 100%;
+.my-btn-secondary {
+    width: auto;
     padding: 12px;
-   background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(1, 23, 68, 0.4);
     font-family: inherit;
-    transition: all 0.2s
+    transition: all 0.2s;
+    
 }
-.btn-secondary:hover {
+.my-btn-secondary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(48, 1, 45, 0.5)
+    box-shadow: 0 6px 20px rgba(108, 3, 101, 0.5)
 }
+
 /* Hover */
 .btn:hover {
     opacity: 0.9;
@@ -1208,13 +1210,13 @@ tbody tr:hover {
     border-color: var(--primary)
 }
 
-.btn-primary {
-    width: 100%;
+.my-btn-primary {
+    width: auto;
     padding: 12px;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
@@ -1223,7 +1225,7 @@ tbody tr:hover {
     transition: all 0.2s
 }
 
-.btn-primary:hover {
+.my-btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(94, 114, 228, 0.5)
 }

@@ -5,7 +5,7 @@ $('.tab-btn').eq(0).removeClass('active');
 $('.tab-btn').eq(1).addClass('active');
 async function setUser(user) {
     try {
-        const response = await fetch('/auth/signup' , {
+        const response = await fetch('/api/v1/register' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -15,7 +15,7 @@ async function setUser(user) {
         const data = await response.json();
         if (!response.ok) {
             showMessage('Signup failed: ' + data['error'], true);
-            return;
+            return null;
         }
         
         return data.message;
@@ -68,8 +68,11 @@ if (signupForm) {
         }
 
         const res = setUser(user);
-       
-        if (res){
+        if (res === null) {
+            return 
+        }
+        console.log(res);
+        if (res) {
             showMessage('Signup successful! Redirecting...', false);
             showToast('Account created');
 
@@ -77,7 +80,6 @@ if (signupForm) {
                 window.location.href = "/login";
             }, 1000);
         }
-
-        
+       
     });
 }
