@@ -12,7 +12,7 @@
             <option default>No groups available</option>
         {% else %}
             {% for group in groups %}
-                <option value="{{ group }}">{{ group }}</option>  
+                <option value="{{ group }}">{{ group['name'] }}</option>  
             {% endfor %}
         {% endif %}
         

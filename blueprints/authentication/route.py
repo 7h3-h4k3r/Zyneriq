@@ -3,6 +3,7 @@ from flask import render_template, redirect, url_for, flash, request ,session
 from flask import Blueprint
 from lib.SessionClass import Session
 from lib.groupClass import Group
+from lib.apiKeyClass import APIKey
 from uuid import uuid4
 from lib.errorClass import DuplicateUserError, NotFoundUserError, PasswordError
 from . import auth

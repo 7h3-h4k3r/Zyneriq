@@ -13,10 +13,64 @@
       </div>
     </div>
     <table>
-      <thead><tr><th>AUTHOR</th><th>FUNCTION</th><th>STATUS</th><th>EMPLOYED</th><th>ACTION</th></tr></thead>
+      <thead><tr><th>GROUP</th><th>DEVICE</th><th>STATUS</th><th>ACTION</th><th>DELETE</th></tr></thead>
       <tbody>
-        <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#5e72e4,#825ee4)">J</div><div><div class="author-name">John Michael</div><div class="author-email">john@creative-tim.com</div></div></div></td><td><div class="function-title">Manager</div><div class="function-sub">Organization</div></td><td><span class="badge badge-online">ONLINE</span></td><td>23/04/18</td><td><button class="btn-edit">Edit</button></td></tr>
-        <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#fb6340,#fbb140)">A</div><div><div class="author-name">Alexa Liras</div><div class="author-email">alexa@creative-tim.com</div></div></div></td><td><div class="function-title">Programator</div><div class="function-sub">Developer</div></td><td><span class="badge badge-offline">OFFLINE</span></td><td>11/01/19</td><td><button class="btn-edit">Edit</button></td></tr>
+        <tr>
+          <tr>
+            <td>
+              <div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#5e72e4,#825ee4)">J</div>
+              <div>
+                <div class="author-name">John Michael</div>
+                <div class="author-email">john@creative-tim.com</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="function-title">Manager</div>
+            <div class="function-sub">Organization</div>
+          </td>
+          <td>
+            <span class="badge badge-online">ONLINE</span>
+          </td>
+          <td>
+            <input 
+            type= "checkbox" checked data-toggle= "toggle" data-onlabel= "Enable" data-offlabel= "Disable" data-onstyle= "success" data-size='sm' data-offstyle= "danger" />
+          </td>
+          <td>
+            <button class="btn-delete"><img width="50" height="50" src="https://img.icons8.com/clouds/100/trash.png" alt="trash"/></button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="author-cell">
+              <div class="author-avatar" style="background:linear-gradient(135deg,#fb6340,#fbb140)">A
+              </div>
+              <div>
+                <div class="author-name">Alexa Liras
+                </div>
+                <div class="author-email">alexa@creative-tim.com
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="function-title">Programator
+            </div>
+            <div class="function-sub">Developer
+            </div>
+          </td>
+          <td>
+            <span class="badge badge-offline">OFFLINE
+            </span>
+          </td>
+          <td>
+            <input 
+            type= "checkbox" checked data-toggle= "toggle" data-onlabel= "Enable" data-offlabel= "Disable" data-onstyle= "success" data-size='sm' data-offstyle= "danger" />
+          </td>
+          <td>
+            <button class="btn-delete"><img width="50" height="50" src="https://img.icons8.com/clouds/100/trash.png" alt="trash"/></button>
+          </td>
+        </tr>
         <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#2dce89,#2dcecc)">L</div><div><div class="author-name">Laurent Perrier</div><div class="author-email">laurent@creative-tim.com</div></div></div></td><td><div class="function-title">Executive</div><div class="function-sub">Projects</div></td><td><span class="badge badge-online">ONLINE</span></td><td>19/09/17</td><td><button class="btn-edit">Edit</button></td></tr>
         <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#11cdef,#1171ef)">M</div><div><div class="author-name">Michael Levi</div><div class="author-email">michael@creative-tim.com</div></div></div></td><td><div class="function-title">Programator</div><div class="function-sub">Developer</div></td><td><span class="badge badge-online">ONLINE</span></td><td>24/12/08</td><td><button class="btn-edit">Edit</button></td></tr>
         <tr><td><div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#f5365c,#f56036)">R</div><div><div class="author-name">Richard Gran</div><div class="author-email">richard@creative-tim.com</div></div></div></td><td><div class="function-title">Manager</div><div class="function-sub">Executive</div></td><td><span class="badge badge-offline">OFFLINE</span></td><td>04/10/21</td><td><button class="btn-edit">Edit</button></td></tr>

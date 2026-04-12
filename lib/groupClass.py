@@ -1,6 +1,7 @@
 from mongogettersetter import MongoGetterSetter
 from .databaseClass import Mdbconn as MConn
-from uuid import uuid4
+from uuid import uuid4 
+from flask import session
 db = MConn.getMongoClient()
 
 class GroupCollection(metaclass=MongoGetterSetter):

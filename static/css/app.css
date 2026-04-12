@@ -64,7 +64,7 @@
     background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
     color: #fff;
     border: none;
-    border-radius: 999px;
+    border-radius: 10px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
@@ -997,21 +997,18 @@ tbody tr:hover {
     color: #8392ab
 }
 
-.btn-edit {
-    background: transparent;
+.btn-delete {
     border: none;
-    color: var(--primary);
-    font-size: 13px;
-    font-weight: 600;
+    background: transparent;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: background 0.2s
+    padding: 4px;
 }
 
-.btn-edit:hover {
-    background: rgba(94, 114, 228, 0.08)
+.btn-delete img {
+    pointer-events: none;
 }
+
+
 
 .progress-bar-wrap {
     height: 6px;
@@ -1216,7 +1213,7 @@ tbody tr:hover {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: #fff;
     border: none;
-    border-radius: 999px;
+    border-radius: 10px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;

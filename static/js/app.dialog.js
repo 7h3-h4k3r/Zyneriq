@@ -581,7 +581,7 @@ $('.btn-add-device').on('click', function() {
                 onClick: function(event) {
                     var modal = $(event.data.modal);
                     var groupName =modal.find('#api-name').val();
-                    var groupGroup = modal.find('#api-group').val();
+                    var groupGroup = modal.find('#api-group ').val();
                     var groupRemark = modal.find('#api-remarks').val().trim();
                     if (groupRemark.length < 3 || groupName.length < 3 || groupGroup.length < 3) {
                         animateCSS('.btn-create-device', 'shakeX');
@@ -610,4 +610,8 @@ $('.btn-add-device').on('click', function() {
         dialog.show();
     });  
     
+});
+
+$('.btn-delete').on('click', function() {
+    console.log("Delete button clicked");
 });
