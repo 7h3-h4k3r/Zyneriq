@@ -47,8 +47,9 @@ def create_apikey():
     
     try:
         api_key = APIKey.create_api_key(session, name, group, remark, request=request)
-        return {'message': 'API key created successfully', 'api_key': api_key}, 201
+        return {'message': 'API key created successfully', 'api_key': api_key.collection.id , 'api_key_hash': api_key.collection.hash}, 201
     except Exception as e:
+        print(str(e))
         return {'error': 'An error occurred while creating the API key: ' + str(e)}, 500
 
 @auth.route('/auth', methods=['POST'])

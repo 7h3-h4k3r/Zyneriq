@@ -9,10 +9,10 @@
         <option value="" disabled selected>Select a group</option>
         
         {% if not groups %}
-            <option default>No groups available</option>
+            <option value="null" disabled>No groups available</option>
         {% else %}
             {% for group in groups %}
-                <option value="{{ group }}">{{ group['name'] }}</option>  
+                <option value="{{ group['id'] }}">{{ group['name'] }}</option>  
             {% endfor %}
         {% endif %}
         

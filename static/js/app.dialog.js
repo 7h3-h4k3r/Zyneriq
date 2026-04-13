@@ -581,9 +581,9 @@ $('.btn-add-device').on('click', function() {
                 onClick: function(event) {
                     var modal = $(event.data.modal);
                     var groupName =modal.find('#api-name').val();
-                    var groupGroup = modal.find('#api-group ').val();
+                    var groupGroup = modal.find('#api-group').val();
                     var groupRemark = modal.find('#api-remarks').val().trim();
-                    if (groupRemark.length < 3 || groupName.length < 3 || groupGroup.length < 3) {
+                    if (groupRemark.length < 3 || groupName.length < 3 || groupGroup == null) {
                         animateCSS('.btn-create-device', 'shakeX');
                         return;
                     }else{
@@ -592,12 +592,29 @@ $('.btn-add-device').on('click', function() {
                             group: groupGroup,
                             remark: groupRemark
                         }, function(data) {
-                            console.log(data);
                             $(modal).modal('hide');
-                        }); 
+                            key = new Dialog("API Key Created", `<p>Your API Key has been created successfully. Please copy the API Key below as it will not be shown again.</p><div class="alert alert-info" role="alert"><strong>${data.api_key}</strong></div>`, 'static');
+                            key.setButtons({
+                                'copy': {
+                                    name: 'Copy API Key',
+                                    class: 'btn-primary',
+                                    onClick: function(event) {
+                                        navigator.clipboard.writeText(data.api_key)
+                                    }
+                                },
+                                'close': {
+                                    name: 'Close',
+                                    class: 'btn-secondary',
+                                    dismiss: true
+                                }
+                            });
+                            key.show();
+                            $.get('/apikey/row?hash=' + data.api_key_hash, function(rowData) {
+                                $('#api-details tbody').append(rowData);
+                                $('#toggle-' + data.api_key_hash).bootstrapToggle();
+                            }); 
+                        });
                     }
-                    console.log(groupGroup, groupName);
-                    $(modal).modal('hide');
                 }
             },
             {

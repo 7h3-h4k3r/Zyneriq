@@ -40,4 +40,5 @@ class Group:
     @staticmethod
     def get_groups():
         collection = db.groups
-        return collection.find({})
+        result = collection.find({})
+        return list(result)

@@ -1,20 +1,28 @@
 from mongogettersetter import MongoGetterSetter
 from .databaseClass import Mdbconn as MConn
+from flask import session
 from uuid import uuid4
 from time import time
+import hashlib
 
 db = MConn.getMongoClient()
 
 class APIKeyCollection(metaclass=MongoGetterSetter):
     def __init__(self, id):
         self._collection = db.apikeys
-        self._filter_query = {"id": id}
+        self._filter_query = {'$or' : [
+            {"id": id},
+            {"hash": id}
+        ]}
 
 class APIKey:
 
     def __init__(self, id):
-        self.collection = APIKeyCollection(id)
-        self.id = self.collection.id 
+        try:
+            self.collection = APIKeyCollection(id)
+            self.id = self.collection.id
+        except Exception as e:
+            return None
     
     def is_valid(self):
         creation_time = self.collection.creation_time
@@ -24,7 +32,16 @@ class APIKey:
         else:
             now = time()
             return now - creation_time < validity
-    
+    @staticmethod
+    def get_api_key_info():
+        if not session.get('authenticated') or not session.get('username'):
+            raise Exception("Authentication required")
+        
+        collection = db.apikeys
+        api_keys= collection.find({"username": session['username']})
+        return api_keys
+        
+            
     @staticmethod
     def create_api_key(session , name, group,remark, request= None, validity=0,_type='api'):
         if not session.get('authenticated'):
@@ -47,6 +64,7 @@ class APIKey:
         
         collection.insert_one({
             "id": uuid,
+            "hash" : hashlib.md5(uuid.encode()).hexdigest(),
             "username": session['username'],
             "name": name,
             "group": group, 
@@ -58,4 +76,4 @@ class APIKey:
             "request": request_info
         })  
 
-        return uuid
+        return APIKey(uuid)
