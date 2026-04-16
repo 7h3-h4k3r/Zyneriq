@@ -3,6 +3,7 @@ from blueprints.authentication import auth
 from lib.apiKeyClass import APIKey
 from lib.groupClass import Group
 from blueprints.dialog import dialog
+from blueprints.apikeys import api
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -11,19 +12,12 @@ app.secret_key= os.getenv('SECRET_KEY')
 # print("Secret Key Loaded:", app.secret_key)  # Debugging line to confirm secret key is loaded
 app.register_blueprint(auth)
 app.register_blueprint(dialog)
+app.register_blueprint(api)
 
 @app.route("/")
 def home():
     return "Welcome to Zyneriq! Please visit /dashboard to access your dashboard."
 
-@app.route("/apikey")
-def apikey():
-    if not session.get('authenticated'):
-        return redirect(url_for('login'))
-    api_keys = APIKey.get_api_key_info()
-    groups = Group.get_groups()
-    
-    return render_template("apikey.html",session=session,api_keys=api_keys,groups=groups)
 
 @app.route("/dashboard")
 def dashboard(): 
@@ -33,20 +27,14 @@ def dashboard():
         return redirect(url_for('login'))
     else:
         return render_template("dashboard.html",session=session,username=session.get('username'))   
-
-@app.route("/apikey/row") 
-def apikey_row():
+@app.route("/apikey")
+def apikey():
     if not session.get('authenticated'):
         return redirect(url_for('login'))
-    api_key_hash = request.args.get('hash')
-    if not api_key_hash:
-        return {'error': 'API key hash is required'}, 400  
-    api_keys_ob = APIKey(api_key_hash)
-    if api_keys_ob.collection._data is None:
-        return {'error': 'API key not found'}, 404
-    print(api_keys_ob.collection._data)  # Debugging line to check API key data
+    api_keys = APIKey.get_api_key_info()
     groups = Group.get_groups()
-    return render_template("apikey/api-table.html", api_key=api_keys_ob.collection._data, groups=groups)
+    
+    return render_template("apikey.html",session=session,api_keys=api_keys,groups=groups)
 @app.route("/profile")
 def profile():
     return render_template("profile.html")  

@@ -4,7 +4,7 @@ $('.tab-btn').eq(1).removeClass('active');
 
 async function getUser(user) {
     try {
-        const response = await fetch('/api/v1/auth' , {
+        const response = await fetch('/api/v1/auth/signin' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

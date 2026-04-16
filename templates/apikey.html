@@ -14,6 +14,7 @@
     </div>
     <table id="api-details">
       <thead><tr><th>Who is</th><th>Group</th><th>STATUS</th><th>ACTION</th><th>DELETE</th></tr></thead>
+      
       <tbody>
       {% for api_key in api_keys %}
         {%include 'apikey/api-table.html' %}
@@ -26,7 +27,7 @@
     <div class="table-card-title">Projects table</div>
     <table>
       <thead><tr><th>PROJECT</th><th>BUDGET</th><th>STATUS</th><th>COMPLETION</th><th>ACTION</th></tr></thead>
-      <tbody>
+      <tbody ">
         <tr><td style="font-weight:600">Spotift</td><td>$2,500</td><td style="color:#5e72e4;font-weight:600">working</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">60%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:60%;background:#5e72e4"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
         <tr><td style="font-weight:600">Invesion</td><td>$5,000</td><td style="color:#2dce89;font-weight:600">done</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">100%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:100%;background:#2dce89"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>
         <tr><td style="font-weight:600">Jira</td><td>$3,400</td><td style="color:#f5365c;font-weight:600">cancelled</td><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12px;font-weight:600">30%</span><div class="progress-bar-wrap"><div class="progress-bar" style="width:30%;background:#f5365c"></div></div></div></td><td><button class="action-dots">⋮</button></td></tr>

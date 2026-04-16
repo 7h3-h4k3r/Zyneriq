@@ -1,7 +1,6 @@
 
 
-        <tr>
-          <tr>
+        <tr id="api-row-{{ api_key.hash }}">
             <td>
               <div class="author-cell"><div class="author-avatar" style="background:linear-gradient(135deg,#5e72e4,#825ee4)">N</div>
               <div>
@@ -9,14 +8,15 @@
                 <div class="author-email">{{ api_key.remark }}</div>
               </div>
             </div>
-          </td>
+            </td>
+          
           {% for groups in groups %}
           {% if groups.id == api_key.group %}
             <td>
               <div class="function-title">{{groups.name}}</div>
               <div class="function-sub">{{groups.description}}</div>
             </td>
-            {% if api_key.active == true %}
+            {% if api_key.active == 'true' %}
               <td>
                 <span class="badge badge-online">ONLINE</span>
               </td>
@@ -26,11 +26,10 @@
               </td>
             {% endif %}
           <td>
-            <input 
-            type= "checkbox" id ="toggle-{{api_key.hash}}" checked data-toggle= "toggle" data-onlabel= "Enable" data-offlabel= "Disable" data-onstyle= "success" data-size='sm' data-offstyle= "danger" />
+            <input class = "api-key-toggle" type= "checkbox" id ="toggle-{{api_key.hash}}" checked data-toggle= "toggle" data-onlabel= "Enable" data-offlabel= "Disable" data-onstyle= "success" data-size='sm' data-offstyle= "danger" />
           </td>
           <td>
-            <button class="btn-delete id = {{api_key.hash}}"><img width="50" height="50" src="https://img.icons8.com/clouds/100/trash.png" alt="trash"/></button>
+            <button class="btn-delete" id ="toggle-del-{{api_key.hash}}"><img width="50" height="50" src="https://img.icons8.com/clouds/100/trash.png" alt="trash"/></button>
           </td>
           {% endif %}
           {% endfor %}

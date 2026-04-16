@@ -52,7 +52,7 @@ def create_apikey():
         print(str(e))
         return {'error': 'An error occurred while creating the API key: ' + str(e)}, 500
 
-@auth.route('/auth', methods=['POST'])
+@auth.route('/signin', methods=['POST'])
 def authenticate():
     if session.get('authenticated'):
         sess = Session(session['session_id'])

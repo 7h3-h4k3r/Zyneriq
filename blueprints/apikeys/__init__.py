@@ -1,10 +1,10 @@
 from flask import Blueprint
 
 
-auth = Blueprint(
-    'auth',
+api = Blueprint(
+    'api',
     __name__,
-    url_prefix='/api/v1/auth'
+    url_prefix='/api/v1/keys'
 )
 
 from . import route

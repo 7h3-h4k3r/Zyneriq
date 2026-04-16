@@ -552,7 +552,7 @@ $('.btn-create-group').on('click', function() {
                     return;
                 }
                 
-                $.post('/api/v1/create/group', {
+                $.post('/api/v1/auth/create/group', {
                     name: groupName,
                     description: groupDesc
                 }, function(data) {
@@ -587,7 +587,7 @@ $('.btn-add-device').on('click', function() {
                         animateCSS('.btn-create-device', 'shakeX');
                         return;
                     }else{
-                        $.post('/api/v1/create/apikey', {
+                        $.post('/api/v1/auth/create/apikey', {
                             name: groupName,
                             group: groupGroup,
                             remark: groupRemark
@@ -609,7 +609,7 @@ $('.btn-add-device').on('click', function() {
                                 }
                             });
                             key.show();
-                            $.get('/apikey/row?hash=' + data.api_key_hash, function(rowData) {
+                            $.get('/api/v1/keys/apikey/row?hash=' + data.api_key_hash, function(rowData) {
                                 $('#api-details tbody').append(rowData);
                                 $('#toggle-' + data.api_key_hash).bootstrapToggle();
                             }); 
@@ -629,6 +629,60 @@ $('.btn-add-device').on('click', function() {
     
 });
 
-$('.btn-delete').on('click', function() {
-    console.log("Delete button clicked");
+$('#api-details tbody').on('change', '.api-key-toggle', function() {
+
+    var hash = $(this).attr('id').replace('toggle-', '');
+    var status = $(this).prop('checked');
+
+    var row = $(this).closest('tr');
+
+    var badge = row.find('.badge');
+
+    if (status) {
+        badge.text('ONLINE')
+             .removeClass('badge-offline')
+             .addClass('badge-online');
+    } else {
+        badge.text('OFFLINE')
+             .removeClass('badge-online')
+             .addClass('badge-offline');
+    }
+
+    console.log("Toggling API Key with hash " + hash + " to status " + status);
+
+    $.post('/api/v1/keys/update/status', {
+        hash: hash,
+        status: status
+    }, function(data) {
+        console.log(data);
+    });
+});
+$('#api-details tbody').on('click', '.btn-delete', function() {
+    var hash = $(this).attr('id').replace('toggle-del-', '')
+    var dialog = new Dialog(
+        "Delete API Key", 
+        `<p>Are you sure you want to delete this API Key? This action cannot be undone.</p>`,
+    'static');
+    dialog.setButtons({
+        'delete': {
+            name: 'Delete',
+            class: 'btn-danger',
+            onClick: function(event) {
+                var modal = $(event.data.modal);
+                $.post('/api/v1/keys/delete', {
+                    hash: hash
+                }, function(data) {
+                    console.log(data);
+                    $(modal).modal('hide');
+                    $('#api-row-' + hash).remove();
+                });
+            }
+        },
+        'cancel': {
+            name: 'Cancel',
+            class: 'btn-secondary',
+            dismiss: true
+        }
+    });
+    dialog.show();  
 });

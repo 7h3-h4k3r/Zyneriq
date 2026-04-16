@@ -5,7 +5,7 @@ $('.tab-btn').eq(0).removeClass('active');
 $('.tab-btn').eq(1).addClass('active');
 async function setUser(user) {
     try {
-        const response = await fetch('/api/v1/register' , {
+        const response = await fetch('/api/v1/auth/register' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

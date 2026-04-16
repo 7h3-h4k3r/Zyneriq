@@ -1,6 +1,6 @@
 async function alreadyLogin() {
     try {
-        const response = await fetch('/api/v1/' , {
+        const response = await fetch('/api/v1/auth/' , {
             method: 'POST',
         });
         if (!response.ok) {
