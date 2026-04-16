@@ -18,6 +18,26 @@ app.register_blueprint(api)
 def home():
     return "Welcome to Zyneriq! Please visit /dashboard to access your dashboard."
 
+@app.before_request
+def before_request():
+    if session.get('type') == 'web':
+        return 
+    auth_heder = request.headers.get('Authorization')
+   
+    if auth_heder:
+        try:
+            api_key = auth_heder.split(" ")[1]  
+            api_key_obj = APIKey(api_key)
+            if api_key_obj and api_key_obj.is_valid():
+                session['authenticated'] = True
+                session['username'] = api_key_obj.collection.username
+                session['type'] = 'api'
+            else:
+                session.clear()
+        except Exception as e:
+            session.clear() 
+    else:
+        session.clear()
 
 @app.route("/dashboard")
 def dashboard(): 
@@ -39,9 +59,12 @@ def apikey():
 def profile():
     return render_template("profile.html")  
 
-@app.route("/billing")
+@app.route("/devicetest")
 def billing():
-    return render_template("billing.html")  
+    if session.get('authenticated'):
+        return 'Hello, this is a test endpoint for device information!' 
+    else:
+        return 'session not authenticated'
 @app.route("/login")
 def login():
     return render_template("login.html")    

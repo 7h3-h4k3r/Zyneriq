@@ -52,7 +52,10 @@ def api_active():
     if not api_key:
         return {'error': 'API key not found'}, 404
     try:
-        api_key.collection.active = status.lower()
+        if status.lower() == 'true':
+             api_key.collection.active = 1
+        else:   
+            api_key.collection.active = 0
         return {'message': 'API key status updated successfully'}, 200
     except Exception as e:  
         print(str(e))

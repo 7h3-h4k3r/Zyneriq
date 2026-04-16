@@ -16,18 +16,43 @@
               <div class="function-title">{{groups.name}}</div>
               <div class="function-sub">{{groups.description}}</div>
             </td>
-            {% if api_key.active == 'true' %}
+            {% if api_key.active %}
               <td>
                 <span class="badge badge-online">ONLINE</span>
+              </td>
+              <td>
+                <input 
+                  class="api-key-toggle"
+                  type="checkbox"
+                  id="toggle-{{ api_key.hash }}"
+                  checked
+                  data-toggle="toggle"
+                  data-on="Enable"
+                  data-off="Disable"
+                  data-onstyle="success"
+                  data-offstyle="danger"
+                  data-size="sm"
+                />
               </td>
             {% else %}
               <td>
                 <span class="badge badge-offline">OFFLINE</span>
               </td>
+              <td>
+                <input 
+                  class="api-key-toggle"
+                  type="checkbox"
+                  id="toggle-{{ api_key.hash }}"
+                  data-toggle="toggle"
+                  data-on="Enable"
+                  data-off="Disable"
+                  data-onstyle="success"
+                  data-offstyle="danger"
+                  data-size="sm"
+                />
+              </td>
             {% endif %}
-          <td>
-            <input class = "api-key-toggle" type= "checkbox" id ="toggle-{{api_key.hash}}" checked data-toggle= "toggle" data-onlabel= "Enable" data-offlabel= "Disable" data-onstyle= "success" data-size='sm' data-offstyle= "danger" />
-          </td>
+          
           <td>
             <button class="btn-delete" id ="toggle-del-{{api_key.hash}}"><img width="50" height="50" src="https://img.icons8.com/clouds/100/trash.png" alt="trash"/></button>
           </td>

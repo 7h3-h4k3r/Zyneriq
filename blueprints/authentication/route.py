@@ -71,7 +71,7 @@ def authenticate():
             session['authenticated'] = True
             session['session_id'] = sessid
             session['username'] = user['username']
-            
+            session['type'] = 'web'
             if 'redirect' in request.form and request.form['redirect'] == True:
                 return redirect(url_for('dashboard'))
             return {'message': 'Login successful', 'username': session['username']}, 200

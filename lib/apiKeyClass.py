@@ -28,10 +28,13 @@ class APIKey:
         creation_time = self.collection.creation_time
         validity = self.collection.validity
         if validity == 0:
-            return True
+            return self.collection.active
         else:
-            now = time()
-            return now - creation_time < validity
+            if self.collection.active:
+                now = time()
+                return now - creation_time < validity
+            else:            
+                return False
     @staticmethod
     def get_api_key_info():
         if not session.get('authenticated') or not session.get('username'):
@@ -71,7 +74,7 @@ class APIKey:
             "remark": remark,
             "creation_time": time(),
             "validity": validity, # 0 means never expire
-            "active": True,
+            "active": 1,
             "type": _type,
             "request": request_info
         })  
